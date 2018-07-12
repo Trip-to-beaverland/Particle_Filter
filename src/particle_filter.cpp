@@ -225,8 +225,8 @@ void ParticleFilter::resample() {
     vector<Particle> NewParticles;
     for(int i = 0; i < num_particles; i++) {
             beta += distDouble(gen) * 2.0;
-            while( beta > weights[index]) {
-                    beta -= weights[index];
+            while( beta > new_weights[index]) {
+                    beta -= new_weights[index];
                     index = (index + 1) % num_particles;
                     }
             NewParticles.push_back(particles[index]);
